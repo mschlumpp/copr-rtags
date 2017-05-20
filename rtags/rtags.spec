@@ -1,6 +1,6 @@
 Name:		rtags
 Version:	2.9
-Release:	2%{?dist}
+Release:	3%{?dist}
 Summary:	Generic library for just-in-time compiler functionality.
 
 #Group:		
@@ -13,6 +13,7 @@ Source1:	https://github.com/Andersbakken/rct/archive/2fb0698c1a44dd287dfaebbfa96
 BuildRequires:	clang-devel
 BuildRequires:	llvm-devel
 BuildRequires:	cmake
+BuildRequires:	bash-completion
 Requires:	clang
 Requires:	llvm
 
@@ -44,24 +45,17 @@ make install DESTDIR=%{buildroot}
 %{_datadir}/bash-completion/completions/rtags
 %{_datadir}/man/man7/rc.7.gz
 %{_datadir}/man/man7/rdm.7.gz
-%exclude
-%{_datadir}/emacs/site-lisp/rtags/company-rtags.el
-%{_datadir}/emacs/site-lisp/rtags/company-rtags.elc
-%{_datadir}/emacs/site-lisp/rtags/flycheck-rtags.el
-%{_datadir}/emacs/site-lisp/rtags/flycheck-rtags.elc
-%{_datadir}/emacs/site-lisp/rtags/rtags-ac.el
-%{_datadir}/emacs/site-lisp/rtags/rtags-ac.elc
-%{_datadir}/emacs/site-lisp/rtags/rtags-helm.el
-%{_datadir}/emacs/site-lisp/rtags/rtags-helm.elc
-%{_datadir}/emacs/site-lisp/rtags/rtags-ivy.el
-%{_datadir}/emacs/site-lisp/rtags/rtags-ivy.elc
-%{_datadir}/emacs/site-lisp/rtags/rtags.el
-%{_datadir}/emacs/site-lisp/rtags/rtags.elc
 %doc
 
 
 
 %changelog
+* Sat May 20 2017 Marco Schlumpp <marco.schlumpp@gmail.com> 2.9-3
+- Remove emacs files.
+
+* Sat May 20 2017 Marco Schlumpp <marco.schlumpp@gmail.com>
+- Remove emacs files.
+
 * Sat May 20 2017 Marco Schlumpp <marco.schlumpp@gmail.com> 2.9-2
 - Fixed spec file.
 
