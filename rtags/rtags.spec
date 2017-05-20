@@ -59,4 +59,7 @@ make install DESTDIR=%{buildroot}
 
 
 %changelog
+* Sat May 20 2017 Marco Schlumpp <marco.schlumpp@gmail.com> 2.10-1
+- added initial version of a rtags package.
+
 
