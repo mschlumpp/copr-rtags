@@ -1,6 +1,6 @@
 Name:		rtags
 Version:	2.9
-Release:	1%{?dist}
+Release:	2%{?dist}
 Summary:	Generic library for just-in-time compiler functionality.
 
 #Group:		
@@ -10,8 +10,11 @@ Source0:	https://github.com/Andersbakken/rtags/archive/v%{version}.zip#/rtags-%{
 %global shortcommit1 2fb0698c1a44dd287dfaebbfa964b5d21bfe8300
 Source1:	https://github.com/Andersbakken/rct/archive/2fb0698c1a44dd287dfaebbfa964b5d21bfe8300.zip#/rct-%{shortcommit1}.zip
 
-BuildRequires:	clang-devel llvm-devel emacs
-Requires:	clang llvm
+BuildRequires:	clang-devel
+BuildRequires:	llvm-devel
+BuildRequires:	cmake
+Requires:	clang
+Requires:	llvm
 
 %description
 A C/C++ client/server indexer for C/C++/Objc[++] with integration for Emacs based on clang.
@@ -23,7 +26,7 @@ rmdir src/rct
 mv -f rct-%{shortcommit1} src/rct
 
 %build
-%cmake .
+%cmake -DRTAGS_NO_ELISP_FILES=1 -FORCE_BASH_COMPLETION_INSTALLATION=ON .
 make %{?_smp_mflags}
 
 
@@ -59,7 +62,7 @@ make install DESTDIR=%{buildroot}
 
 
 %changelog
-* Sat May 20 2017 Marco Schlumpp <marco.schlumpp@gmail.com> 2.10-1
-- added initial version of a rtags package.
+* Sat May 20 2017 Marco Schlumpp <marco.schlumpp@gmail.com> 2.9-2
+- Fixed spec file.
 
 
